@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}О нас - Кошкодом{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1 class="text-center mb-4">О приюте «Кошкодом»</h1>
+    
+    <!-- История -->
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <h2>Наша история</h2>
+            <p>Приют «Кошкодом» был основан в 2015 году группой волонтеров, неравнодушных к судьбе бездомных кошек. 
+            Начинали мы с небольшой передержки в квартире, а сегодня у нас есть уютный приют, где одновременно могут жить до 50 кошек.</p>
+            <p>За 10 лет работы мы помогли обрести дом более чем 1500 хвостикам. Каждый год мы принимаем участие в городских выставках 
+            и проводим дни открытых дверей, чтобы рассказать людям о важности ответственного отношения к животным.</p>
+        </div>
+        <div class="col-md-6">
+            <h2>Миссия</h2>
+            <p>Наша миссия — снижение количества бездомных животных в городе через просвещение, стерилизацию и помощь в поиске новых семей. 
+            Мы верим, что каждая кошка заслуживает любви и тепла, а каждый человек может стать для нее лучшим другом.</p>
+        </div>
+    </div>
+
+    <!-- Команда -->
+    <h2 class="text-center mb-4">Наша команда</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="{% static 'images/team_anna.jpg' %}" class="card-img-top rounded-circle mx-auto mt-3" style="width: 150px; height: 150px; object-fit: cover;" alt="Анна">
+                <div class="card-body">
+                    <h5 class="card-title">Анна Петрова</h5>
+                    <p class="card-text">Основатель приюта, главный координатор. С 2015 года спасает кошек и находит им дома.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="{% static 'images/team_olga.jpg' %}" class="card-img-top rounded-circle mx-auto mt-3" style="width: 150px; height: 150px; object-fit: cover;" alt="Ольга">
+                <div class="card-body">
+                    <h5 class="card-title">Ольга Смирнова</h5>
+                    <p class="card-text">Ветеринарный врач. Следит за здоровьем подопечных, проводит вакцинацию и стерилизацию.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="{% static 'images/team_alex.jpg' %}" class="card-img-top rounded-circle mx-auto mt-3" style="width: 150px; height: 150px; object-fit: cover;" alt="Алексей">
+                <div class="card-body">
+                    <h5 class="card-title">Алексей Иванов</h5>
+                    <p class="card-text">Руководитель волонтерской группы. Организует выезды, выставки и помощь на дому.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Контакты и карта -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h2>Контакты</h2>
+            <ul class="list-unstyled">
+                <li><strong>Адрес:</strong> г. Москва, ул. Котова, д. 15, стр. 2</li>
+                <li><strong>Телефон:</strong> +7 (495) 123-45-67</li>
+                <li><strong>Email:</strong> info@kozhkodom.ru</li>
+                <li><strong>Часы работы приюта:</strong> Ежедневно с 11:00 до 19:00</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h2>Как проехать</h2>
+            <div class="ratio ratio-16x9">
+                <!-- Яндекс.Карты (пример) -->
+                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1234567890&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+            <p class="mt-2">Метро «Котовская», далее авт. 123 до остановки «Приют Кошкодом».</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

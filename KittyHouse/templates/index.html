@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Главная - Приют Кошкодом{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <!-- Приветственное сообщение -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-4">Добро пожаловать в «Кошкодом»!</h1>
+            <p class="lead">
+                Мы — приют для бездомных кошек, где каждая кошка находит заботу, любовь и новый дом.
+                Наша миссия — помочь хвостикам обрести семью и подарить людям верных друзей.
+            </p>
+            <hr>
+            <p>Познакомьтесь с нашими подопечными, которые ждут вашей любви и заботы.</p>
+        </div>
+    </div>
+
+    <!-- Список кошек -->
+    <h2 class="text-center mb-4">Кошки, которые ищут дом</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for cat in cats %}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                {% if cat.image %}
+                <img src="{{ cat.image.url }}" class="card-img-top" alt="{{ cat.name }}" style="height: 250px; object-fit: cover;">
+                {% else %}
+                <img src="{% static 'images/default_cat.jpg' %}" class="card-img-top" alt="Кошка" style="height: 250px; object-fit: cover;">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ cat.name }}</h5>
+                    <p class="card-text text-muted">Возраст: {{ cat.age }}</p>
+                    <p class="card-text">{{ cat.description|truncatechars:100 }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center">
+            <p>Сейчас нет кошек, доступных для усыновления. Загляните позже!</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Ссылки на справочные страницы (в навигации уже есть, но можно продублировать) -->
+    <div class="row mt-5 text-center">
+        <div class="col-md-4">
+            <a href="{% url 'kitty:about' %}" class="btn btn-outline-primary w-100">О нас</a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'kitty:help' %}" class="btn btn-outline-success w-100">Как помочь</a>
+        </div>
+        <div class="col-md-4">
+            <a href="#" class="btn btn-outline-info w-100">Полезные статьи</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
